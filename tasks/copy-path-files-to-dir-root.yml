@@ -22,6 +22,6 @@ run:
     p-automator -v
     set -eux
 
-    for file in files/$INTERPOLATE_PATH/*.*; do
+    for file in files/$PATH_TO_COPY_TO_ROOT/*.*; do
       cp "$file" root-pathed-files
     done
