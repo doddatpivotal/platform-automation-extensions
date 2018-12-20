@@ -1,0 +1,27 @@
+---
+platform: linux
+
+inputs:
+- name: files
+
+outputs:
+- name: root-pathed-files
+#contains all files that were present in the supplied path
+
+# all params are required to be filled out
+params:
+
+  # Path within the file to interpolate
+  PATH_TO_COPY_TO_ROOT:
+
+run:
+  path: bash
+  args:
+  - "-c"
+  - |
+    p-automator -v
+    set -eux
+
+    for file in files/$INTERPOLATE_PATH/*.*; do
+      cp "$file" root-pathed-files
+    done
